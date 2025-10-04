@@ -1,0 +1,6 @@
+services:
+  pdf-converter:
+    build: .
+    volumes:
+      - ./inputs:/data/inputs
+      - ./outputs:/data/outputs
