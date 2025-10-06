@@ -1,5 +1,7 @@
 services:
   pdf-converter:
+    container_name: pdf-converter
+    image: pdf-converter
     build: .
     volumes:
       - ./inputs:/data/inputs
