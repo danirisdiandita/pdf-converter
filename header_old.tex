@@ -1,0 +1,18 @@
+\usepackage{fontspec}
+\usepackage{xeCJK}
+
+% Universal font configuration with automatic fallback
+% Noto Sans has excellent Unicode coverage and modern aesthetics
+\setmainfont{Noto Sans}[
+  Scale=1.0,
+  Ligatures=TeX
+]
+
+% CJK font configuration for Chinese, Japanese, Korean
+\setCJKmainfont{Noto Sans CJK SC}[
+  Scale=1.0
+]
+
+% Enable proper handling of complex scripts
+\XeTeXlinebreaklocale "en"
+\XeTeXlinebreakskip = 0pt plus 1pt

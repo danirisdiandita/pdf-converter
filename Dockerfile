@@ -1,43 +1,37 @@
-# Use Alpine Linux for minimal image size
-FROM alpine:3.19
+# Use Debian Bookworm Slim for minimal image size
+FROM debian:bookworm-slim
 
 # Install Pandoc, LaTeX (full), and comprehensive font support for ALL languages
-RUN apk add --no-cache \
+RUN apt-get update -y && apt-get install -y \
     pandoc \
     texlive-full \
+    curl \
+    fontconfig \
     # Install ALL Noto fonts for comprehensive Unicode coverage
     # This covers 1000+ languages and all major scripts
-    font-noto \
-    font-noto-extra \
-    font-noto-cjk \
-    font-noto-arabic \
-    font-noto-hebrew \
-    font-noto-armenian \
-    font-noto-devanagari \
-    font-noto-bengali \
-    font-noto-tamil \
-    font-noto-telugu \
-    font-noto-malayalam \
-    font-noto-kannada \
-    font-noto-thai \
-    font-noto-lao \
-    font-noto-khmer \
-    font-noto-myanmar \
-    font-noto-sinhala \
-    font-noto-georgian \
-    font-noto-emoji \
+    fonts-noto \
+    fonts-noto-cjk \
+    fonts-noto-cjk-extra \
+    fonts-noto-color-emoji \
+    fonts-noto-extra \
+    fonts-noto-ui-core \
+    fonts-noto-ui-extra \
+    fonts-noto-unhinted \
     # Additional font families for maximum compatibility
-    font-liberation \
-    font-dejavu \
-    fontconfig \
+    fonts-liberation \
+    fonts-liberation2 \
+    fonts-dejavu \
+    fonts-dejavu-core \
+    fonts-dejavu-extra \
     # Rebuild font cache for all installed fonts
     && fc-cache -fv
 
+RUN curl -L -o /usr/share/fonts/noto/NotoSansEthiopic-Regular.ttf https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf
 # Set working directory
 WORKDIR /data
 
 
-RUN apk add --no-cache python3 py3-pip
+RUN apt-get install -y python3 python3-pip
 RUN python3 -m venv /venv
 ENV PATH="/venv/bin:$PATH"
 

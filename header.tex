@@ -1,18 +1,73 @@
+% header.tex
+\usepackage{hyperref}
 \usepackage{fontspec}
-\usepackage{xeCJK}
+\usepackage{polyglossia} % Better multilingual and RTL support
+\usepackage{xeCJK} % For CJK
+\usepackage{ucharclasses}
 
-% Universal font configuration with automatic fallback
-% Noto Sans has excellent Unicode coverage and modern aesthetics
+% Set main language (fallback)
+\setmainlanguage{english}
+
+% Declare secondary languages (you can add more)
+\setotherlanguages{
+  amharic,
+  arabic,
+  bengali,
+  farsi,
+  hebrew,
+  hindi,
+  armenian,
+  georgian,
+  khmer,
+  kannada,
+  lao,
+  malayalam,
+  marathi,
+  burmese,
+  nepali,
+  sinhala,
+  tamil,
+  telugu,
+  thai,
+  urdu,
+  yiddish
+}
+
+% Universal Latin font
 \setmainfont{Noto Sans}[
-  Scale=1.0,
-  Ligatures=TeX
+  Ligatures=TeX,
+  Scale=1.0
 ]
 
-% CJK font configuration for Chinese, Japanese, Korean
+% Monospace font
+\setmonofont{Noto Sans Mono}[
+  Scale=0.9
+]
+
+% CJK support
 \setCJKmainfont{Noto Sans CJK SC}[
   Scale=1.0
 ]
 
-% Enable proper handling of complex scripts
-\XeTeXlinebreaklocale "en"
-\XeTeXlinebreakskip = 0pt plus 1pt
+% Define fonts for complex scripts
+\newfontfamily\amharicfont{Noto Sans Ethiopic}
+\newfontfamily\arabicfont[Script=Arabic]{Noto Sans Arabic}
+\newfontfamily\bengalifont[Script=Bengali,Renderer=Harfbuzz]{Noto Sans Bengali}
+\newfontfamily\farsifont[Script=Arabic]{Noto Sans Arabic}
+\newfontfamily\hebrewfont[Script=Hebrew]{Noto Sans Hebrew}
+\newfontfamily\hindifont[Script=Devanagari]{Noto Sans Devanagari}
+\newfontfamily\armenianfont{Noto Sans Armenian}
+\newfontfamily\georgianfont{Noto Sans Georgian}
+\newfontfamily\khmerfont{Noto Sans Khmer}
+\newfontfamily\kannadafont{Noto Sans Kannada}
+\newfontfamily\laofont{Noto Sans Lao}
+\newfontfamily\malayalamfont{Noto Sans Malayalam}
+\newfontfamily\marathifont{Noto Sans Devanagari}
+\newfontfamily\burmesefont{Noto Sans Myanmar}
+\newfontfamily\nepalifont{Noto Sans Devanagari}
+\newfontfamily\sinhalesefont{Noto Sans Sinhala}
+\newfontfamily\tamilfont{Noto Sans Tamil}
+\newfontfamily\telugufont{Noto Sans Telugu}
+\newfontfamily\thaifont{Noto Sans Thai}
+\newfontfamily\urdufont[Script=Arabic]{Noto Sans Arabic}
+\newfontfamily\yiddishfont[Script=Hebrew]{Noto Sans Hebrew}
