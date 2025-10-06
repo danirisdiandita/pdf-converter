@@ -26,16 +26,16 @@ RUN apt-get update -y && apt-get install -y \
     # Rebuild font cache for all installed fonts
     && fc-cache -fv
 
-RUN curl -L -o /usr/share/fonts/noto/NotoSansEthiopic-Regular.ttf https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf
+# RUN curl -L -o /usr/share/fonts/noto/NotoSansEthiopic-Regular.ttf https://github.com/googlefonts/noto-fonts/raw/main/hinted/ttf/NotoSansEthiopic/NotoSansEthiopic-Regular.ttf
 # Set working directory
 WORKDIR /data
 
 
-RUN apt-get install -y python3 python3-pip
-RUN python3 -m venv /venv
-ENV PATH="/venv/bin:$PATH"
-
-RUN pip install --upgrade pip setuptools
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    python3-venv \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY main.py /data/main.py
 COPY header.tex /data/header.tex
