@@ -1,7 +1,7 @@
-- [ ] am
-- [ ] ar
-- [x] bn
-- [ ] fa
+- [x] am [x]
+- [ ] ar [x]
+- [x] bn [x]
+- [ ] fa [x]
 - [ ] he
 - [ ] hi
 - [ ] hy

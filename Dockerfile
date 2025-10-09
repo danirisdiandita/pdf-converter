@@ -37,8 +37,8 @@ RUN apt-get update && apt-get install -y \
     python3-venv \
     && rm -rf /var/lib/apt/lists/*
 
-COPY main.py /data/main.py
-COPY header.tex /data/header.tex
+# COPY main.py /data/main.py
+# COPY header.tex /data/header.tex
 
 # Default command
 # CMD ["pandoc", "--version"]

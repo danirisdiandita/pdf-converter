@@ -1,0 +1,28 @@
+% Compile with XeLaTeX
+\documentclass{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+% Main and other languages
+\setmainlanguage{english}
+\setotherlanguages{bengali, amharic}
+
+% Fonts
+\newfontfamily\englishfont{Times New Roman}
+\newfontfamily\bengalifont[Script=Bengali]{Noto Sans Bengali}
+\newfontfamily\amharicfont[Script=Ethiopic]{Noto Sans Ethiopic}
+
+\begin{document}
+
+\section*{Inline Multilingual Example}
+
+This is an English sentence.  
+Now mixing:  
+\textbengali{এটি একটি বাংলা বাক্য।}  
+and \textamharic{ይህ የአማርኛ ሐረግ ነው።}
+
+You can also combine them inline:  
+“\textbengali{বাংলা} is Bengali, and \textamharic{አማርኛ} is Amharic.”
+
+\end{document}

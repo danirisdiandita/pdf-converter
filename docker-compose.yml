@@ -6,3 +6,7 @@ services:
     volumes:
       - ./inputs:/data/inputs
       - ./outputs:/data/outputs
+      - ./header.tex:/data/header.tex
+      - ./main.py:/data/main.py
+      - ./samples:/data/samples
+      - ./chars:/data/chars
